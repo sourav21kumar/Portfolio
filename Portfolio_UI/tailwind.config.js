@@ -18,12 +18,14 @@ module.exports = {
         'GT-Walsheim-Pro-Bold': ['GT Walsheim Pro Bold']
       },
       backgroundImage: {
-        'profile-image': "url('./assets/ProfileImage.jpg')"
+        'profile-image': "url('./assets/ProfileImage.jpg')",
+        'org-zessta': "url('./assets/zesstaLogo.svg')",
+        'org-arealytics': "url('./assets/arealytics.png')"
       },
       animation: {
         spotlight: 'spotlight 2s ease .75s 1 forwards',
         'meteor-effect': 'meteor 5s linear infinite',
-        'mouse-scroll': 'scroll 1.5s linear infinite'
+        'mouse-scroll': 'scroll 1.5s linear infinite',
       },
       keyframes: {
         spotlight: {
@@ -56,17 +58,26 @@ module.exports = {
       },
       colors: {
         // Background Gradients colors
+        'bg-root': '#0D0D0F',
+        'bg-navigation-primary': '#131315',
         'bg-radial-gradient-start-color': '#FF1493',
         'bg-radial-gradient-end-color': '#FF7F50',
+        'bg-navigation-secondary': 'rgba(0, 0, 0, 0.06)',
+        'bg-secondary': 'rgba(255,255,255, 0.02)',
+        'bg-timeline': 'rgba(255,255,255,0.06)',
         //  Borders colors
         'border-semi-transparent-rgba': 'rgba(255, 255, 255, 0.01)',
+        'border-semi-transparent-navigation-rgba': 'rgba(255, 255, 255, 0.02)',
         // Text Colors
         'color-text-button-gradient': '#333333',
       },
+
     },
     boxShadow: {
       'shadow-btn-prmary-normal': 'inset 0px 0px 0.5px 1.5px rgb(255 255 255 / 0.2)',
-      'shadow-btn-primary-hover': 'inset 0px -2px 1px 1px rgb(255 230 191 / 0.5)'
+      'shadow-btn-primary-hover': 'inset 0px -2px 1px 1px rgb(255 230 191 / 0.5)',
+      'shadow-navigation': 'rgba(255, 255, 255, 0.024) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.035) 0px 3px 5.4px -2px inset',
+      'shadow-navigation-button': 'rgba(255, 255, 255, 0.06) 0px 0.362176px 0.507046px -0.75px inset, rgba(255, 255, 255, 0.118) 0px 3px 4.2px -1.5px inset'
     }
   },
   plugins: []

@@ -1,38 +1,160 @@
-.App {
-  text-align: center;
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Russo+One&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@layer base {
+  @font-face {
+    font-family: 'GT Walsheim Medium';
+    src: url('../public/fonts/GT Walsheim Medium/GT Walsheim Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'GT Walsheim Pro Bold Regular';
+    src: url('../public/fonts/GT Walsheim Pro Bold Regular/GT Walsheim Pro Bold Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'GT Walsheim Regular';
+    src: url('../public/fonts/GT Walsheim Regular/GT Walsheim Regular.ttf') format('truetype');
+  } 
+   @font-face {
+    font-family: 'GT Walsheim Pro Bold';
+    src: url('../public/fonts/GT Walsheim Pro Bold/GT Walsheim Pro Bold.ttf') format('truetype');
+  }
+  
+  body {
+    @apply bg-[#0D0D0F]
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@layer components {
+  /* Main Content Wrapper */
+  .main {
+    @apply h-fit ml-auto mr-auto w-fit max-w-[65%] flex flex-col text-center overflow-y-auto overflow-x-hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  /* Button Component */
+  .btn-primary {
+    @apply p-[0.5rem] pl-[2rem] pr-[2rem] rounded-[1rem] border-2
+     border-border-semi-transparent-rgba bg-gradient-to-br from-bg-radial-gradient-start-color to-bg-radial-gradient-end-color 
+     font-GT-Walsheim-regular tracking-[0.05em] antialiased text-color-text-button-gradient
+     shadow-shadow-btn-prmary-normal transition-shadow delay-150 ease-in-out hover:shadow-shadow-btn-primary-hover;
+  }
+  .btn-primary div {
+    @apply w-fit flex justify-center items-center gap-[0.5rem] transition-transform delay-100 ease-linear;
+  }
+  .btn-primary:hover div {
+    @apply translate-y-[-2px];
+  }
+
+  /* Mouse Scroll UI Element */
+  .icon-scroll {
+    @apply relative ml-auto mr-auto h-[2.7rem] w-[1.8rem] rounded-[1rem] top-[4rem] shadow-[inset_0px_0px_0px_1px_#CFCFCF] flex justify-center;
+  }
+  .icon-scroll::before {
+    @apply absolute content-[''] w-[0.5rem] h-[0.5rem] bg-[#ffffff] rounded-full top-[8px]
+    animate-mouse-scroll;
+  }
+
+  /* Navigation Bar */
+  .navigation-main {
+    @apply sticky w-fit h-fit m-auto z-10 top-[4rem] border-[1px] border-border-semi-transparent-navigation-rgba rounded-[55px] bg-bg-navigation-secondary opacity-100 p-[9px] backdrop-blur-md
+  }
+  
+  .navigation-main > .navList  {
+    @apply flex relative gap-[1.2rem] rounded-[55px] p-[10px] bg-bg-navigation-primary shadow-shadow-navigation
+  }
+  
+  .profile {
+    @apply bg-profile-image bg-cover bg-center bg-no-repeat
+  }
+  
+  
+  .nav-item {
+    @apply w-[3rem] h-[3rem] rounded-full transition-all duration-150 ease-linear;
+  }
+  .nav-item:hover{
+    @apply bg-[rgba(255,255,255,0.04)] border-[rgba(255,255,255,0.06)]
+  }
+
+  .logo {
+   @apply p-[0.18rem]
+  }
+  .nav-link {
+    @apply relative flex justify-center items-center inline-block w-full h-full rounded-full border-[1.5px] border-border-semi-transparent-navigation-rgba text-[#A2A2A3] text-[1.2rem] shadow-shadow-navigation-button cursor-pointer transition-all duration-150 ease-linear;;
+  }
+  .nav-link:hover {
+    @apply text-[1.1rem] 
+  }
+
+  .keywords {
+    @apply text-bg-radial-gradient-start-color
+  }
+
+  /* Work Experience */
+  /* .workexperience-main {
+    @apply w-full flex flex-col text-justify p-[2.5rem] bg-bg-secondary border-[1px] border-border-semi-transparent-rgba rounded-[24px] shadow-shadow-navigation
+  }  */
+  .experience{
+    @apply w-full flex flex-col p-[2rem] pb-0 bg-bg-secondary border-[1px] border-border-semi-transparent-rgba rounded-[24px] shadow-shadow-navigation mb-[2.5rem];
+  }
+  .timeline {
+    @apply relative  w-full 
+  }
+  .timeline-event {
+    @apply relative
+  }
+  .timeline::before {
+    @apply absolute bg-bg-timeline content-[''] top-0  w-[2px] h-[96%] left-[2em]
+  }
+  .timeline-event-icon {
+    @apply absolute block bg-green-500 outline-[10px] outline-bg-secondary  left-[2em] top-0 w-[0.8rem] h-[0.8rem] rounded-full mr-[0.5em] mb-[0.5em] ml-[-0.3em];
+  }
+  .outline-active {
+    outline: 5px solid #142616;
+  }
+  .timeline-event-copy {
+    @apply relative  left-[2rem] p-[2rem] -top-[2.28rem] flex flex-col gap-[1rem]
+  }
+  .timeline-event-thumbnail {
+    @apply font-GTWalsheim-medium tracking-[0.025em] text-[16px] text-[#8B0000] bg-[#FFDAB9] text-center w-fit p-[0.25rem] pl-[0.5rem] pr-[0.5rem] text-nowrap
+  }
+  .timeline-event-copy > a {
+    @apply flex flex-col items-start leading-[1.5rem] text-nowrap
+  }
+  .timeline-event-copy > a > img {
+    @apply h-[1.8rem] mb-[1rem]
+  }
+  .timeline-event-copy > a > h3 {
+    @apply text-[rgba(255,255,255,0.8)]
+  }
+  .timeline-event-copy > a > h4 {
+    @apply text-[rgba(255,255,255,0.5)]
+  }
+  .timeline-event-copy > a, h4 {     
+    @apply font-GT-Walsheim-regular tracking-[0.05em] text-[16.5px]
+  }
+
+  /* .milestone-event-icon { 
+    @apply absolute text-xl text-[rgba(255,255,255,0.5)] inline-block p-[5px] bg-bg-navigation-secondary opacity-100 backdrop-blur-md left-[-13px];
+  }  */
+
+  .milestone {
+    @apply flex flex-col font-GT-Walsheim-regular gap-[1.5rem] mt-[2rem]
+  }
+
+  .milestone > ul {
+    @apply flex flex-col text-[18.5px] gap-[1rem] text-[rgba(255,255,255,0.5)]
+  }
+
+  .milestone-event > h3 {
+    @apply tracking-[0.05em] text-[19.5px] text-[rgba(255,255,255,0.8)]
+  } 
+  .milestone-icon { 
+    @apply absolute text-xl text-[rgba(255,255,255,0.5)] inline-block p-[5px] bg-bg-navigation-secondary opacity-100 backdrop-blur-md left-[-13px];
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
